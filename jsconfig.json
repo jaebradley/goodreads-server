@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "es6",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "rootDir": "./src/",
+    "baseUrl": "./src/",
+    "paths": {
+      "Data/*": ["./src/data/*"],
+      "GraphQL/*": ["./src/graphql/*"],
+      "Middlewares/*": ["./src/middlewares/*"],
+      "Requests/*": ["./src/requests/*"],
+      "Routes/*": ["./src/routes/*"],
+      "Store/*": ["./src/store/*"],
+      "Src/*": ["./src/*"],
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

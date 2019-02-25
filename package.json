@@ -1,0 +1,72 @@
+{
+  "name": "@jaebradley/goodreads-server",
+  "version": "0.0.0-development",
+  "private": true,
+  "engines": {
+    "node": "10.14.1",
+    "npm": "6.4.1"
+  },
+  "description": "Goodreads server for my personal projects",
+  "main": "build/index.js",
+  "scripts": {
+    "start:dev": "NODE_ENV=development node_modules/.bin/webpack --config configs/webpack.config.development.js",
+    "start:prod": "NODE_ENV=production node_modules/.bin/webpack --config configs/webpack.config.production.js",
+    "lint": "./node_modules/.bin/eslint src/",
+    "precommit-check": "npm run lint && npm run test",
+    "test": "./node_modules/.bin/jest src/"
+  },
+  "author": "jae.b.bradley@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaebradley/goodreads-server.git"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.3.1",
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.4",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "express-promise-router": "^3.0.3",
+    "express-unless": "^0.5.0",
+    "jsonwebtoken": "^8.5.0",
+    "knex": "0.16.3",
+    "lodash": "^4.17.11",
+    "morgan": "^1.9.1",
+    "oauth": "^0.9.15",
+    "pg": "^7.8.1",
+    "uuid": "^3.3.2",
+    "winston": "^3.2.1",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-transform-async-to-generator": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^1.0.1",
+    "dotenv-webpack": "^1.7.0",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-import-resolver-webpack": "^0.11.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "nodemon": "^1.18.10",
+    "nodemon-webpack-plugin": "^4.0.7",
+    "webpack": "^4.29.5",
+    "webpack-build-notifier": "^0.1.30",
+    "webpack-cli": "^3.2.3",
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
