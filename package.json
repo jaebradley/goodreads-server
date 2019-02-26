@@ -10,7 +10,7 @@
   "main": "build/index.js",
   "scripts": {
     "start": "node build/index.js",
-    "heroku-postbuild": "npm run start:prod",
+    "heroku-postbuild": "npm install && npm run start:prod",
     "start:dev": "NODE_ENV=development node_modules/.bin/webpack --config configs/webpack.config.development.js --progress",
     "start:prod": "NODE_ENV=production node_modules/.bin/webpack --config configs/webpack.config.production.js --progress",
     "lint": "./node_modules/.bin/eslint src/",
