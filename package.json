@@ -9,8 +9,10 @@
   "description": "Goodreads server for my personal projects",
   "main": "build/index.js",
   "scripts": {
-    "start:dev": "NODE_ENV=development node_modules/.bin/webpack --config configs/webpack.config.development.js",
-    "start:prod": "NODE_ENV=production node_modules/.bin/webpack --config configs/webpack.config.production.js",
+    "start": "node build/index.js",
+    "heroku-postbuild": "npm run start:prod",
+    "start:dev": "NODE_ENV=development node_modules/.bin/webpack --config configs/webpack.config.development.js --progress",
+    "start:prod": "NODE_ENV=production node_modules/.bin/webpack --config configs/webpack.config.production.js --progress",
     "lint": "./node_modules/.bin/eslint src/",
     "precommit-check": "npm run lint && npm run test",
     "test": "./node_modules/.bin/jest src/"
