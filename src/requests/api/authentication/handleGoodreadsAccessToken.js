@@ -11,6 +11,9 @@ import {
   getByGoodreadsUserId,
   updateGoodreadsAuthentication,
 } from 'Src/store/users';
+import {
+  encrypt,
+} from 'Src/encryption';
 import generateJWT from 'Src/generateJWT';
 
 export default async function handleGoodreadsAccessToken(request, response, next) {
@@ -37,27 +40,19 @@ export default async function handleGoodreadsAccessToken(request, response, next
             logger.info(goodreadsUserData);
             const goodreadsUserId = goodreadsUserData.elements[0].elements[1].attributes.id;
 
-            const [
-              hashedAccessToken,
-              hashedAccessTokenSecret,
-            ] = await Promise.all([
-              bcrypt.hash(oauthToken, 10),
-              bcrypt.hash(oauthTokenSecret, 10),
-            ]);
-
             let user = await getByGoodreadsUserId(goodreadsUserId);
 
             if (user) {
               await updateGoodreadsAuthentication({
-                goodreadsUserData,
-                accessToken: hashedAccessToken,
-                accessTokenSecret: hashedAccessTokenSecret,
+                goodreadsUserId,
+                accessToken: encrypt(oauthToken),
+                accessTokenSecret: encrypt(oauthTokenSecret),
               });
             } else {
               user = await create({
                 goodreadsUserId,
-                accessToken: hashedAccessToken,
-                accessTokenSecret: hashedAccessTokenSecret,
+                accessToken: encrypt(oauthToken),
+                accessTokenSecret: encrypt(oauthTokenSecret),
               });
             }
 
