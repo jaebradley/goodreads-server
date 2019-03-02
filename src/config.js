@@ -8,6 +8,7 @@ const {
   PORT,
   ENVIRONMENT,
   JWT_SECRET,
+  ENCRYPTION_PASSWORD,
 } = process.env;
 
 export {
@@ -16,4 +17,5 @@ export {
   PORT,
   ENVIRONMENT,
   JWT_SECRET,
+  ENCRYPTION_PASSWORD,
 };

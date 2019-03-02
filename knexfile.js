@@ -9,7 +9,7 @@ const MIGRATIONS = Object.freeze({
 
 const configuration = Object.freeze({
   development: {
-    client: 'postgresql',
+    client: 'pg',
     pool: {
       min: 2,
       max: 10,
@@ -18,12 +18,12 @@ const configuration = Object.freeze({
     connection: process.env.DATABASE_URL,
   },
   staging: {
-    client: 'postgresql',
+    client: 'pg',
     migrations: MIGRATIONS,
     connection: process.env.DATABASE_URL,
   },
   production: {
-    client: 'postgresql',
+    client: 'pg',
     migrations: MIGRATIONS,
     connection: process.env.DATABASE_URL,
   },
