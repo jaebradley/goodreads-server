@@ -39,7 +39,7 @@ export default async function handleBookReview(request, response, next) {
       }
     } else {
       response.statusCode = 200;
-      response.json(xml2js(data));
+      response.json(xml2js(data, { compact: true, spaces: 4 }));
     }
   });
 }
