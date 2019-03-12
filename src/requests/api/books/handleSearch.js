@@ -30,7 +30,13 @@ export default async function handleSearch(request, response, next) {
   }
 
   const data = xml2js(searchResponse.data, { compact: true, spaces: 4 });
-  const bestBook = data.GoodreadsResponse.search.results.work.find(work => work.best_book.author.name._text === request.query.author);
+  const work = data.GoodreadsResponse.search.results.work;
+  let bestBook = {};
+  if (Array.isArray(work)) {
+    bestBook = work.find(work => work.best_book.author.name._text === request.query.author);
+  } else if (work.best_book.author.name._text === request.query.author) {
+    bestBook = work;
+  }
   response.statusCode = 200;
   response.json(bestBook);
   return null;
